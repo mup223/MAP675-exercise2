@@ -1,1 +1,20 @@
-{}
+{
+  "name": "MAP675-exercise2",
+  "description": "### Mission Statement In this project I am going to produce a choropleth map of the recent Virginia gubernatorial elections. I'm going to display it per county and impliment visual hierarchies. I'm also going to use the CARTO color scheme that was introduced in the lesson.",
+  "version": "1.0.0",
+  "main": "countymapgenerator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mup223/MAP675-exercise2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mup223/MAP675-exercise2/issues"
+  },
+  "homepage": "https://github.com/mup223/MAP675-exercise2#readme"
+}
