@@ -45,6 +45,15 @@
         // instantiate Leaflet map
         const map = L.map('map', options);
 
+        map.createPane('labels');
+        map.getPane('labels').style.zIndex = 650;
+        map.getPane('labels').style.pointerEvents = 'none';
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+            attribution: '©OpenStreetMap, ©CartoDB',
+            pane: 'labels'
+        }).addTo(map);
+
         // add CARTO voyager tiles with no labels
         L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
             maxZoom: 18,
@@ -66,13 +75,12 @@
             /// create a layerGroup with the geojson data
             const electionCounties = L.geoJson(counties, {
                 style: function (feature) {
-                    // #E58606,#5D69B1,#52BCA3,#99C945,#CC61B0,#24796C,#DAA51B,#2F8AC4,#764E9F,#ED645A,#CC3A8E,#A5AA99
-                    // use the colors object to style each polygon a unique color
+                    // use the colors object to symbolize each result differently
                     console.log(feature.properties.winner)
                     if (feature.properties.winner.includes('Glenn')) {
                         return {
                             fillColor: colors.Vivid[10][9],
-                            fillOpacity: .6,
+                            fillOpacity: .8,
                             weight: 2,
                             opacity: 1,
                             color: '#D3D3D3'
@@ -80,7 +88,7 @@
                     } else {
                         return {
                             fillColor: colors.Vivid[10][7],
-                            fillOpacity: .6,
+                            fillOpacity: .8,
                             weight: 2,
                             opacity: 1,
                             color: '#D3D3D3'
@@ -88,23 +96,29 @@
                     }
                 },
                 onEachFeature(feature, layer) {
-                    console.log(feature)
-                    console.log(layer)
+                    // console.log(feature)
+                    // console.log(layer)
+
+                    layer.bindPopup(
+                        '<p> <span style="font-weight: bold; text-decoration: underline">' + feature.properties.NAME + '</span><br>' + 'Winner: ' + feature.properties.winner + '<br>' + 'Ratio: ' + feature.properties.perc + '</p>'
+                    )
 
                     //when mousing over a polygon layer
                     layer.on('mouseover', function () {
                         // provide a visual affordance
                         this.setStyle({
-                            fillOpacity: .8
+                            fillOpacity: .9
                         });
+                        this.openPopup();
                     })
 
                     //when mousing over a polygon layer
                     layer.on('mouseout', function () {
                         // provide a visual affordance
                         this.setStyle({
-                            fillOpacity: .6
+                            fillOpacity: .9
                         });
+                        this.closePopup();
                     })
                 }
             }).addTo(map);

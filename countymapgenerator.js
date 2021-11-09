@@ -12,16 +12,20 @@ mapdata.features.forEach(element => {
                 if (parseFloat(i.Candidates[0].Percentage) > parseFloat(i.Candidates[1].Percentage)) {
                     // once matched, write the winner to the county
                     element.properties.winner = i.Candidates[0].BallotName
+                    element.properties.perc = i.Candidates[0].Percentage
                 } else {
                     element.properties.winner = i.Candidates[1].BallotName
+                    element.properties.perc = i.Candidates[1].Percentage
                 }
             }
         } else if (element.properties.JURISTYPE === 'CI') {
             if (element.properties.NAME.toUpperCase() + ' CITY' === i.Locality.LocalityName) {
                 if (parseFloat(i.Candidates[0].Percentage) > parseFloat(i.Candidates[1].Percentage)) {
                     element.properties.winner = i.Candidates[0].BallotName
+                    element.properties.perc = i.Candidates[0].Percentage
                 } else {
                     element.properties.winner = i.Candidates[1].BallotName
+                    element.properties.perc = i.Candidates[1].Percentage
                 }
             }
         }
