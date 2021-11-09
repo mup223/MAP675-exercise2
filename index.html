@@ -21,12 +21,12 @@
             bottom: 0;
         }
 
-        .my-label {
+        .my-div-icon {
             /* position: absolute; */
             /* width: 1000px; */
             font-size: 15px;
-            background-color: transparent;
-            border: transparent;
+            /* background-color: transparent;
+            border: transparent; */
         }
     </style>
 </head>
@@ -90,16 +90,6 @@
                 onEachFeature(feature, layer) {
                     console.log(feature)
                     console.log(layer)
-
-                    var marker = new L.marker(layer.getBounds().getCenter(), {
-                        opacity: 0
-                    }); //opacity may be set to zero
-                    marker.bindTooltip(feature.properties.NAME, {
-                        permanent: true,
-                        className: "my-label",
-                        offset: [0, 0]
-                    });
-                    marker.addTo(map);
 
                     //when mousing over a polygon layer
                     layer.on('mouseover', function () {
