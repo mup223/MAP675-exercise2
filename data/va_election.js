@@ -2118,7 +2118,7 @@ module.exports = {
         }]
     }, {
         "Locality": {
-            "LocalityName": "KING & QUEEN COUNTY",
+            "LocalityName": "KING AND QUEEN COUNTY",
             "LocalityCode": "097"
         },
         "PrecinctsReporting": 7,
