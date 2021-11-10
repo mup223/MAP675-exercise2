@@ -168,9 +168,6 @@
                     }
                 },
                 onEachFeature(feature, layer) {
-                    // console.log(feature)
-                    // console.log(layer)
-
                     layer.bindPopup(
                         '<p> <span style="font-weight: bold; text-decoration: underline">' + feature.properties.NAME + '</span><br>' + 'Winner: ' + feature.properties.winner + '<br>' + 'Ratio: ' + feature.properties.perc + '</p>'
                     )
