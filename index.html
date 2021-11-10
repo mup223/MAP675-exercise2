@@ -19,20 +19,92 @@
             width: 100%;
             top: 0;
             bottom: 0;
+            z-index: 1;
         }
 
-        .my-div-icon {
-            /* position: absolute; */
-            /* width: 1000px; */
-            font-size: 15px;
-            /* background-color: transparent;
-            border: transparent; */
+        #legend {
+            width: 230px;
+            height: 75px;
+            background-color: white;
+            border: solid black 3px;
+            border-radius: 5px;
+            z-index: 2;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            margin-left: 50px;
         }
+
+        .legend-box {
+            width: 30px;
+            height: 30px;
+        }
+
+        #glenn-box {
+            background-color: #ED645A;
+        }
+
+        #terry-box {
+            background-color: #2F8AC4;
+        }
+
+        #flex-column-one {
+            width: 80%;
+            padding-left: 12px;
+        }
+
+        #flex-column-two {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 5px;
+        }
+
+        #flex-column-one > p:nth-child(2) {
+            margin-top: 11px;
+        }
+
+        #flex-column-one > p:nth-child(1) {
+            margin-bottom: 17px;
+            margin-top: 11px;
+        }
+
+        #title {
+            width: 387px;
+            height: 38px;
+            z-index: 2;
+            background-color: white;
+            border-radius: 5px;
+            border: solid black 3px;
+            position: absolute;
+            left: 0;
+            margin-left: 746px;
+            text-align: center;
+            padding-top: 17px;
+            margin-top: 20px;
+        }
+
+      
     </style>
 </head>
 
 <body>
+    <div id="title">2021 Virginia November General & Special Elections</div>
     <div id="map"></div>
+    <div id="legend">
+        <div id="flex-column-one">
+            <p>Glenn A. Youngkin</p>
+            <p>Terry R. McAuliffe</p>
+        </div>
+        <div id="flex-column-two">
+            <div id="glenn-box" class="legend-box"></div>
+            <div id="terry-box" class="legend-box"></div>
+        </div>
+    </div>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
